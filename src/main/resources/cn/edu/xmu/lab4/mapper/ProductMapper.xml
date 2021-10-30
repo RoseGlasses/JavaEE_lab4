@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.xmu.lab4.mapper.ProductMapper">
+    <select id="findProduct" parameterType="ProductPo" resultType="ProductPo">
+        select * from oomall_product
+        where id = #{id}
+    </select>
+
+    <insert id="createProduct" parameterType="ProductPo" keyProperty="id" useGeneratedKeys="true">
+        insert into oomall_product
+        values(#{id},#{goodsId},#{productSn},#{name},#{originalPrice},#{weight},#{imageUrl},#{state},#{detail},#{disabled})
+    </insert>
+</mapper>
